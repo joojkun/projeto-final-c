@@ -128,17 +128,29 @@ void lwss(char **mat)
     mat[posicao1+2][posicao2+3]='X';
     }
 
-
-
+void transformMatriz(char **mat, int numLin, int numCol, char celulaViva, char celulaMorta)
+{
+    int i, j;
+        for (i=0;i<numLin;i++){
+        for(j=0;j<numCol;j++){
+            if(mat[i][j]=='0')
+                mat[i][j]=celulaMorta;
+                else mat[i][j]=celulaViva;
+            }}
+}
 
 int main()
 {
     char **matriz;
     int nL, nC;
+    char cV, cM;
     scanf("%d%d", &nL, &nC);
+    scanf(" %c %c", &cV, &cM);
     criaMatriz(&matriz, nL, nC);
-    vidaEterna2(matriz);
+    vidaEterna1(matriz);
+    transformMatriz(matriz,nL,nC,cV,cM);
     imprimeMatriz(matriz, nL, nC);
     limpaMatriz(matriz, nL);
 
 }
+
