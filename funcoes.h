@@ -1,3 +1,4 @@
+
 void criaMatriz(char*** mat, int numeroLinha, int numeroColuna)
 {
     int i, j;
@@ -25,15 +26,17 @@ void limpaMatriz(char **mat, int numeroLinha)
     free(mat);
 }
 
-void vidaEterna1(char **mat, int posicao1, int posicao2)
+void bloco(char **mat, int posicao1, int posicao2)
 {
+    int i, j;
     for (i=0;i<2;i++){
         for(j=0;j<2;j++){
             mat[i+linha][j+coluna]='X';}}
 }
-void vidaEterna2(char **mat, int linha, int coluna)
+void bote(char **mat, int linha, int coluna)
 {
 
+    int i;
     for (i=0;i<2;i++)
         mat[linha][coluna+i]='X';
     for (i=0;i<2;i++)
@@ -42,14 +45,29 @@ void vidaEterna2(char **mat, int linha, int coluna)
         mat[linha+2][coluna+i]='X';
 
 }
+void comilao(char **mat, int linha, int coluna)
+{
+    int i;
+    for (i=0;i<2;i++)
+        mat[linha][coluna+i]='X';
+    mat[linha+1][coluna]='X';
+    for (i=0;i<3;i++)
+        mat[linha+2][coluna+1+i]='X';
+    mat [linha+3][coluna+3]='X';
+
+
+}
+
 void blinker(char **mat, int linha, int coluna)
 {
+    int i;
     for (i=0;i<3;i++)
         mat[linha][coluna+i]='X';
 
 }
 void frog(char **mat, int linha, int coluna)
 {
+    int i;
     for (i=0;i<3;i++)
         mat[linha][coluna+i]='X';
     for (i=0;i<3;i++)
@@ -58,7 +76,7 @@ void frog(char **mat, int linha, int coluna)
 }
 void glider(char **mat, int linha, int coluna)
 {
-   
+   int i;
     for (i=0;i<3;i++)
         mat[linha][coluna+i]='X';
     mat[linha+1][coluna]='X';
@@ -68,6 +86,7 @@ void glider(char **mat, int linha, int coluna)
 void lwss(char **mat, int linha, int coluna)
 {
    
+    int i;
     for (i=0;i<2;i++)
         mat[linha][coluna+(3*i)]='X';
     for (i=0;i<3;i++)
@@ -76,6 +95,38 @@ void lwss(char **mat, int linha, int coluna)
         mat[linha+3][coluna+i]='X';
     mat[linha+2][coluna+3]='X';
     }
+
+void acorn (char **mat, int linha, int coluna)
+{
+    int i;
+    mat[linha][coluna]='X';
+    mat[linha+1][coluna+2]='X';
+    for (i=0;i<2;i++)
+        mat[linha+2][coluna-1+i]='X';
+    for (i=0;i<3;i++)
+        mat[linha+2][coluna+3+i]='X';
+
+}
+void diehard (char **mat, int linha, int coluna)
+{
+    int i;
+    mat[linha-1][coluna+6]='X';
+    for (i=0;i<2;i++)
+        mat[linha][coluna+i]='X';
+    mat[linha+1][coluna+1]='X';
+    for (i=0;i<3;i++)
+        mat [linha+1][coluna+i+5]='X';
+
+}
+void tetris (char **mat, int linha, int coluna)
+{
+    int i;
+    mat [linha-1][coluna+2]='X';
+    for (i=0;i<3;i++)
+        mat [linha][coluna+i]='X';
+    mat[linha+1][coluna+1]='X';
+
+}
 
 void transformMatriz(char **mat, int numLin, int numCol, char celulaViva, char celulaMorta)
 {
