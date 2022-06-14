@@ -26,7 +26,7 @@ void limpaMatriz(char **mat, int numeroLinha)
     free(mat);
 }
 
-void bloco(char **mat, int posicao1, int posicao2)
+void bloco(char **mat, int linha, int coluna)
 {
     int i, j;
     for (i=0;i<2;i++){
